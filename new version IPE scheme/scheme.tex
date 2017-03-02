@@ -1,6 +1,7 @@
 \section{Scheme}
 
 \subsection{The Construction}
+\leo{do another pass over the format of scheme. use $\cdot$ as multiplication notation and $\ell$ to as letter $l$. I haven't read the correctness and security proof yet.}
 Let $\lambda \in \Z^{+}$ be the security parameter and $l$ be the length of predicate and attribute vectors. Let $q$ and $m$ be positive integers. Let $\sigma$ and $\alpha$ be positive real Gaussian parameters. Define $k=\lfloor \log_{2}q\rfloor$. \\[0.6cm]
 $\setup$$(1^{\lambda},1^{l})$: On input a security parameter $\lambda$ and a parameter $l$ denoting the
 
@@ -65,6 +66,7 @@ $\dec$$(\pp,\sk_{\vec{v}},\ct,\vec{v})$: On input public parameters $\pp$ ,a sec
 \item Compute $ z\leftarrow c_{2}-\vec{c}\vec{r}$(mod $q$).
 \end{enumerate}
 ~~Output $0$ if $|z|<q/4$ and $1$ otherwise.\\[0.2cm]
+
 
 \subsection{Correctness}
 We prove correctness of our scheme as follow.

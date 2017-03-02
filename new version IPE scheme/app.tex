@@ -53,6 +53,7 @@ v_{i,l} \mat{I}_{n}
 \item Set  $\mat{A}_{\overrightarrow{\mat{V}}}=[\mat{A} | \mat{B}\mat{V}_{1}| ...... | \mat{B}\mat{V}_{j}] \in \Z^{n \times (j+1)m}_{q}$.
 \item Using the master secret key $\mat{T}_\mat{A}$ to construct short basis $\mat{E}_{\overrightarrow{\mat{V}}}$ for  $\Lambda^{\perp}_{q}(\mat{A}_{\overrightarrow{\mat{V}}})$  by  invoking the $\sampleleft$ algorithm.
 \end{enumerate}
+\leo{since the basis of $\mat{A}_{\overrightarrow{\mat{V}}}$ is $2m \times 2m$, there might not be enough entropy to do the algorithm. But if you use the extendbasis introduced in the Bonsai tree paper, the trapdoor of $\mathbf{A}$ will be completely. Thus, I think this scheme is not correct.}
 ~~~~~Output $\sk_{\overrightarrow{\mat{V}}}=\mat{E}_{\overrightarrow{\mat{V}}}$.\\[0.4cm]
 $\enc(\pp, \overrightarrow{\mat{W}}, m)$: On input $\pp$, a message $m \in \{0,1\}$, and attribute vectors $\overrightarrow{\mat{W}}=(\vec{w}_{1},...,\vec{w}_{h})$ where $\vec{w}_{i}=(w_{i,1},...,w_{i,l})$:
 \begin{enumerate}
@@ -100,6 +101,7 @@ v_{i,l} \mat{I}_{n}
 
 
 \section{Fuzzy Identity-based Encryption}
+\leo{haven't read this part carefully yet, but from the exact threshold paragraph you wrote. seems we can do it.}
 In this section, we construct a FIBE scheme from our IPE scheme, we first introduce the definition and the security model of Fuzzy IBE.\\[0.4cm]
 A Fuzzy Identity Based encryption scheme consists of the following four algorithms:
 \begin{description}

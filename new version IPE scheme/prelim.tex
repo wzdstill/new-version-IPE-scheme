@@ -2,7 +2,7 @@
 \paragraph{Notation.} Let $\secparam$ be the security parameter, and let $\ppt$ denote probabilistic polynomial time. We use bold uppercase letters to denote matrices ${\bf M}$, and bold lowercase letters to denote vectors $\vec{v}$. We write $\widetilde{\mat M}$ to denote the Gram-Schmidt orthogonalization of $\mat M.$ We write $[n]$ to denote the set $\{1,...,n\}$, and $|\vec{t}|$ to denote the number of bits in the string $\vec{t}$. We denote the $i$-th bit $\vec{s}$ by $\vec{s}[i]$. We say a function $\negl(\cdot): \N \rightarrow (0,1)$ is negligible, if for every constant $c \in \N$, $\negl(n) < n^{-c}$ for sufficiently large $n$.
 
 \subsection{Inner Product Encryption}
-We recall the syntax and security definition of \emph{inner product encryption} (IPE). IPE can be regarded as a generalization of predicate encryption. An IPE scheme $\Pi$ consists of the 4-tuple $(\setup, \keygen, \enc,
+We recall the syntax and security definition of \emph{inner product encryption} (IPE) \leo{cite}. IPE can be regarded as a generalization of predicate encryption. An IPE scheme $\Pi$ consists of the 4-tuple $(\setup, \keygen, \enc,
 \\
 \dec)$ algorithms with details as follows:
 \begin{description}
@@ -12,7 +12,7 @@ We recall the syntax and security definition of \emph{inner product encryption} 
  \item $\dec(\sk_{\vec{v}}, c_{\vec{w}})$: On input the secret key $\sk_{\vec{v}}$ and a ciphertext $c_{\vec{w}}$, it outputs the corresponding plaintext $\mu$ if $\langle \vec{v}, \vec{w} \rangle = 0$; otherwise, it outputs $\bot$.
 \end{description}
 
-\paragraph{Correctness.} We say the IPE scheme described above is correct, if for any $(\msk, \pp) \leftarrow \setup(1^\secparam)$, any message $\mu$, predicate vector $\vec{v}$, and any attribute vector $\vec{w}$ where $\langle \vec{v}, \vec{w}\rangle = 0$, we have $\dec(\sk_{\vec{v}}, \ct_{\vec{w}}) = \mu$, where $\sk_{\vec{w}} \leftarrow \keygen(\msk, \vec{v})$ and $\ct_{\vec{v}} \leftarrow \enc(\pp, \vec{w}, \mu)$.
+\paragraph{Correctness.} We say the IPE scheme described above is correct, if for any $(\msk, \pp) \leftarrow \setup(1^\secparam)$, any message $\mu$, predicate vector $\vec{v}$, and any attribute vector $\vec{w}$ such that $\langle \vec{v}, \vec{w}\rangle = 0$, we have $\dec(\sk_{\vec{v}}, \ct_{\vec{w}}) = \mu$, where $\sk_{\vec{w}} \leftarrow \keygen(\msk, \vec{v})$ and $\ct_{\vec{v}} \leftarrow \enc(\pp, \vec{w}, \mu)$.
 
 \paragraph{Security.}For the security definition of IPE, we use the following experiment to describe it. Formally, for any $\ppt$ adversary $\A$, we consider the experiment $\Expt_{\A}^{\mathsf{IPE}}(1^\secparam)$:
 \begin{itemize}
@@ -67,7 +67,7 @@ For an integer $q = q(n) \geq 2$, and an error distribution $\chi = \chi(n)$ ove
 $$\{\mat{A}, \mat{A}\vec{s} + \vec{x}\} \  \text{and} \ \{\mat{A}, \vec{u}\}$$
 where $\mat{A} \overset{\$}{\leftarrow}\Z^{n \times m}_q$, $\vec{s} \overset{\$}{\leftarrow} \Z^n_q$, $\vec{u} \overset{\$}{\leftarrow} \Z^m_q$, and $\vec{x} \overset{\$}{\leftarrow} \chi^n$.
 \end{definition}
-
+\leo{the dimension in LWE definition is not correct. Also add a theorem about the hardness of LWE}
 
 \subsection{Two-Sided Trapdoors and Sampling Algorithms}
 
