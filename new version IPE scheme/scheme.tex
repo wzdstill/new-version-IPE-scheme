@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 \section{Our Main Construction}
 We describe our IPE scheme that each secret key will be associated with a predicate vector $\vec{v} \in \Z^{\ell}_{q}$(for some fixed $\ell\geq 2$) and each ciphertext will be associated with an attribute vector $\vec{w} \in \Z^{\ell}_{q}$. Decryption may succeed if and only if $\langle \vec{v},\vec{w} \rangle=0 (mod\ q)$.
 \subsection{Construction}
@@ -6,6 +7,16 @@ Let $\lambda \in \Z^{+}$ be the security parameter and $\ell$ be the length of p
 $\setup$$(1^{\lambda},1^{\ell})$: On input a security parameter $\lambda$ and a parameter $\ell$ denoting the length of predicate and
 
 ~~~~~attribute vectors, do:
+=======
+\section{Scheme}
+
+\subsection{The Construction}
+\leo{do another pass over the format of scheme. use $\cdot$ as multiplication notation and $\ell$ to as letter $l$. I haven't read the correctness and security proof yet.}
+Let $\lambda \in \Z^{+}$ be the security parameter and $l$ be the length of predicate and attribute vectors. Let $q$ and $m$ be positive integers. Let $\sigma$ and $\alpha$ be positive real Gaussian parameters. Define $k=\lfloor \log_{2}q\rfloor$. \\[0.6cm]
+$\setup$$(1^{\lambda},1^{l})$: On input a security parameter $\lambda$ and a parameter $l$ denoting the
+
+~~~~length of predicate and attribute vectors, do:
+>>>>>>> origin/master
 \begin{enumerate}
 \item Use the algorithm \trapgen ($1^{\lambda},q,n,m$) to generate a random matrix $\textbf{A} \in \Z^{n \times m}_{q}$ together with a trapdoor $\mat{T}_\mat{A}$.\
 

@@ -2,7 +2,11 @@
 \paragraph{Notation.} Let $\secparam$ be the security parameter, and let $\ppt$ denote probabilistic polynomial time. We use bold uppercase letters to denote matrices ${\bf M}$, and bold lowercase letters to denote vectors $\vec{v}$. We write $\widetilde{\mat M}$ to denote the Gram-Schmidt orthogonalization of $\mat M.$ We write $[n]$ to denote the set $\{1,...,n\}$, and $|\vec{t}|$ to denote the number of bits in the string $\vec{t}$. We denote the $i$-th bit $\vec{s}$ by $\vec{s}[i]$. We say a function $\negl(\cdot): \N \rightarrow (0,1)$ is negligible, if for every constant $c \in \N$, $\negl(n) < n^{-c}$ for sufficiently large $n$.
 
 \subsection{Inner Product Encryption}
+<<<<<<< HEAD
 We recall the syntax and security definition of \emph{inner product encryption} (IPE) ~\cite{EC:KatSahWat08}. IPE can be regarded as a generalization of predicate encryption. An IPE scheme $\Pi$ consists of the 4-tuple $(\setup, \keygen, \enc,
+=======
+We recall the syntax and security definition of \emph{inner product encryption} (IPE) \leo{cite}. IPE can be regarded as a generalization of predicate encryption. An IPE scheme $\Pi$ consists of the 4-tuple $(\setup, \keygen, \enc,
+>>>>>>> origin/master
 \\
 \dec)$ algorithms with details as follows:
 \begin{description}
@@ -68,6 +72,7 @@ $$\{\mat{A}, \mat{A}^{T}\vec{s} + \vec{x}\} \  \text{and} \ \{\mat{A}, \vec{u}\}
 where $\mat{A} \overset{\$}{\leftarrow}\Z^{n \times m}_q$, $\vec{s} \overset{\$}{\leftarrow} \Z^n_q$, $\vec{u} \overset{\$}{\leftarrow} \Z^m_q$, and $\vec{x} \overset{\$}{\leftarrow} \chi^n$.
 \end{definition}
 \leo{the dimension in LWE definition is not correct. Also add a theorem about the hardness of LWE}
+<<<<<<< HEAD
 \begin{theorem}[\cite{STOC:Regev05,STOC:Peikert09,C:MicMol11,EC:MicPei12}]
 Let $q=q(n) \in \N$ be either a prime power or a product of small (size $poly(n)$) distinct primes, and let $B \geq \omega(\log n)\cdot \sqrt{n}$. Then there exists an efficient sampleable $B$-bounded distribution $\chi$ such that if there is an efficient algorithm that solves the average-case $\LWE$ problem for parameters $n, q, \chi$, then:
 \begin{itemize}
@@ -79,6 +84,8 @@ In both cases, if one also considers distinguishers with sub-polynomial advantag
 \begin{theorem}[\cite{STOC:BLPRS13}]
 Solving $n$-dimensional $\LWE$ with $poly(n)$ modulus implies an equally efficient solution to a worst-case lattice problem (e.g., $\Gapsvp$) in dimension $\sqrt{n}$.
 \end{theorem}
+=======
+>>>>>>> origin/master
 
 \subsection{Two-Sided Trapdoors and Sampling Algorithms}
 
