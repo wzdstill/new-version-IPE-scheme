@@ -179,7 +179,7 @@ $\fuzzy.\dec(\pp, \sk_{id}, \ct_{id^{'}})$: On input public parameters $\pp$, a 
 \item Compute $z=c-\vec{c}\cdot \vec{r}$ (mod $q$).
 \end{enumerate}
 ~~Output $0$ if $|z|< q/4$ and 1 otherwise.
-\paragraph{Correctness.} We just consider the case $H_{w}(id \& id^{'})=k\geq t$. $\tilde{\vec{c}}_{k-t+1}=\vec{c}_{k-t+1}\cdot \mat{V}=\vec{s}^{T}\mat{B}\mat{V}+\vec{s}^{T}\mat{W}_{k-t+1}\mat{V}+\vec{e}^{T}_{k-t+1}\mat{V}$. It's easy to see that if $H_{w}(id \& id^{'})=k$, $\mat{W}_{k-t+1}\mat{V}=\mat{0}$, so $\tilde{\vec{c}}_{k-t+1}=\vec{s}^{T}\mat{B}\mat{V}+\vec{e}^{T}_{k-t+1}\mat{V}$. Then $\vec{c}=\vec{s}^{T}\mat{A}_{id}+[\vec{e}^{T}_{0}|\vec{e}^{T}_{k-t+1}\mat{V}]$, and $z=c-\vec{c}.\vec{r}$(mod $q$)$=\lfloor q/2 \rfloor m+\underbrace{e-[\vec{e}^{T}_{0}|\vec{e}^{T}_{k-t+1}\mat{V}]\vec{r}}_{\vec{e}}(mod\ q)$. If the error term $\vec{e}$ is small, our scheme is correct.
+\paragraph{Correctness.} We just consider the case $H_{w}(id \& id^{'})=k\geq t$. $\tilde{\vec{c}}_{k-t+1}=\vec{c}_{k-t+1}\cdot \mat{V}=\vec{s}^{T}\mat{B}\mat{V}+\vec{s}^{T}\mat{W}_{k-t+1}\mat{V}+\vec{e}^{T}_{k-t+1}\mat{V}$. It's easy to see that if $H_{w}(id \& id^{'})=k$, $\mat{W}_{k-t+1}\mat{V}=\mat{0}$, so $\tilde{\vec{c}}_{k-t+1}=\vec{s}^{T}\mat{B}\mat{V}+\vec{e}^{T}_{k-t+1}\mat{V}$. Then $\vec{c}=\vec{s}^{T}\mat{A}_{id}+[\vec{e}^{T}_{0}|\vec{e}^{T}_{k-t+1}\mat{V}]$, and $z=c-\vec{c}\cdot \vec{r}$(mod $q$)$=\lfloor q/2 \rfloor m+\underbrace{e-[\vec{e}^{T}_{0}|\vec{e}^{T}_{k-t+1}\mat{V}]\vec{r}}_{\vec{e}}(mod\ q)$. If the error term $\vec{e}$ is small, our scheme is correct.
 \paragraph{Security.} We sketch the proof of the Selective-ID security of the FIBE scheme described above. We have the following theorem:
 \begin{theorem}
 The FIBE scheme above is selectively secure provided that decision-$\LWE_{n,q,\chi}$ assumption holds.
@@ -192,7 +192,7 @@ $\mat{Game\ 1}$. We slightly change the way that the challenger generates $\pp$.
 x^{*}_{1} \mat{I}_{n}&x^{*}_{2} \mat{I}_{n}&\ldots&x^{*}_{N} \mat{I}_{n}&-t \mat{I}_{n}
 \end{bmatrix} \in \Z^{n \times \mu n}_{q},
 \end{equation}
-and set $\mat{B}=\mat{A}\mat{R}^{*}-\mat{W}^{'}\cdot \G_{\mu n,l^{'},m} \in \Z^{n \times m}_{q}$. Outputs $\pp=(\mat{A}, \mat{B}, \vec{u})$, and sends $\pp$ to $\A$.\\[0.2cm]
+and set $\mat{B}=\mat{A}\mat{R}^{*}-\mat{W}^{'}\cdot \G_{\mu n,\ell^{'},m} \in \Z^{n \times m}_{q}$. Outputs $\pp=(\mat{A}, \mat{B}, \vec{u})$, and sends $\pp$ to $\A$.\\[0.2cm]
 \textbf{Game 2}. We change the way that the challenger answer the key queries. If the adversary $\A$ submits the key query for $id=(a_{1},...,a_{N})$, challenger first checks $H_{w}(id \& id^{'})<t$, if so, define the matrix
 \begin{equation}
 \mat{V}^{'}= \begin{bmatrix}
@@ -208,4 +208,4 @@ Set $\mat{U}=\mat{BV}, \mat{A}_{id}=[\mat{A}|\mat{U}]=[\mat{A}|\mat{A}\mat{R}^{*
 Let $\vec{r}\leftarrow$ $\sampleright$ $(\mat{A},\mat{R}^{*}\mat{V},\mat{W}^{'}\mat{V}^{'}, \mat{T}_{\G_{n,2,m}}, \vec{u}, \sigma)$, so that $\mat{A}_{id}\cdot \vec{r}=\vec{u}$. Outputs $\sk_{id}=\vec{r}$, and sends it to $\A$. Otherwise, outputs $\perp$, and aborts the game.\\[0.2cm]
 $\mat{Game\ 3}$. Change the way to generate the challenge ciphertext. We use $\mat{R}^{*}$ as the matrix $\mat{R}_{1}$ used to generate $\vec{c}_{1}$, the remainder of the game is identical to $\mat{Game\ 2}$.\\[0.2cm]
 $\mat{Game\ 4}$. We just choose the challenge ciphertext as a random independent element from the ciphertext space. So the advantage of $\A$ is zero.\\[0.2cm]
-It easy to see in $\mat{Game\ 3}$, $\vec{c}_{0}=\vec{s}^{T}\mat{A}+\vec{e}^{T}_{0}$, $\vec{c}_{1}=(\vec{s}^{T}\mat{A}+\vec{e}^{T}_{0})\mat{R}^{*}$. $c=\vec{s}^{T}\vec{u}+e+\lfloor q/2\rfloor m$, $\vec{c}_{i}=(\vec{s}^{T}\mat{A}+\vec{e}^{T}_{0})\mat{R}^{*}+\vec{s}^{T}[\vec{0},...,\vec{0},-(i-1)\mat{I}_{n}]+\vec{e}^{T}_{i}-\vec{e}^{T}_{0}\mat{R}^{*}, i=2,...,N-t+1$. If $\vec{s}^{T}\mat{A}+\vec{e}^{T}_{0}$ and $\vec{s}^{T}\vec{u}+e$ are LWE instances, Then it simulates $\mat{Game\ 3}$, if they are random variables, it simulates $\mat{Game\ 4}$. \qed
+It easy to see in $\mat{Game\ 3}$, $\vec{c}_{0}=\vec{s}^{T}\mat{A}+\vec{e}^{T}_{0}$, $\vec{c}_{1}=(\vec{s}^{T}\mat{A}+\vec{e}^{T}_{0})\mat{R}^{*}$. $c=\vec{s}^{T}\vec{u}+e+\lfloor q/2\rfloor m$, $\vec{c}_{i}=(\vec{s}^{T}\mat{A}+\vec{e}^{T}_{0})\mat{R}^{*}+\vec{s}^{T}[\vec{0},...,\vec{0},-(i-1)\mat{I}_{n}]\cdot \G_{\mu n,\ell^{'},m}+\vec{e}^{T}_{i}-\vec{e}^{T}_{0}\mat{R}^{*}, i=2,...,N-t+1$. If $\vec{s}^{T}\mat{A}+\vec{e}^{T}_{0}$ and $\vec{s}^{T}\vec{u}+e$ are LWE instances, Then it simulates $\mat{Game\ 3}$, if they are random variables, it simulates $\mat{Game\ 4}$. \qed 
